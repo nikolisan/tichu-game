@@ -10,6 +10,7 @@ class App:
     def __init__(self,master):
         master.title('Tichu game')
         master.geometry("1000x600")
+        master.resizable(False, False)
 
         self.containers = self.createLayout()
         (top, bot, left, mid, right)=self.containers
@@ -45,9 +46,7 @@ class App:
         print(master)
         for i in range (len(cards)):
             print ("update card:",cards[i], "@", master)
-            p1= os.path.join(os.getcwd(),'cards')
-            p3= ".gif"
-            path=p1+'/'+cards[i]+p3
+            path= os.path.join(os.getcwd(),'cards',cards[i]+'.gif')
 
             img = Image.open(path)
             img = img.resize((60,80), Image.ANTIALIAS)
